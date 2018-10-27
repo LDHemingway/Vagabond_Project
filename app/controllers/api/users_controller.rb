@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
 
     def destroy
         @user = User.find(params[:id]).delete
-        render status: ok
+        render status: 200
     end
 
     private

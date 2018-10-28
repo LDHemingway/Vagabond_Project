@@ -1,21 +1,30 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from './shared_components/NavBar';
+import Logo from './shared_components/Logo';
 
 const StyledBackground = styled.div`
   background-image: url("https://www.wheretraveler.com/sites/default/files/styles/promoted_image_social_large/public/skyline-atlanta_c-davidkosmossmith-flickr.jpg?itok=uMQTObyt");
-  height: 100vh;
+  background-size: cover;
+  background-position: center;
+
+  .overlay {
+    height: 100vh;
+    background-color: rgba(90,200,210,0.6);
+  }
+
+  a {
+    text-decoration: none;
+  }
 `
 const StyledWelcome = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 10vh;
   height: 90%;
-  h1 {
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+  img {
+    width: 70vw;
   }
 `
 
@@ -23,11 +32,14 @@ export default class LandingPage extends Component {
   render() {
     return (
       <StyledBackground>
-        <NavBar></NavBar>
-        <StyledWelcome>
-        <h1>Vagabond</h1>
-        </StyledWelcome>
-        
+        <div className="overlay">
+          <Link to='/home'>
+            <NavBar onLanding={true} />
+            <StyledWelcome>
+              <Logo />
+            </StyledWelcome>
+          </Link>
+        </div>
       </StyledBackground>
     )
   }

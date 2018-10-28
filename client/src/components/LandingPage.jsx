@@ -11,7 +11,7 @@ const StyledBackground = styled.div`
 
   .overlay {
     height: 100vh;
-    background-color: rgba(90,200,210,0.6);
+    background-color: rgba(220,240,250,0.65);
   }
 
   a {

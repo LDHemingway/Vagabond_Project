@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const StyledDiv = styled.div`
 h1 {
     color: rgb(255,255,255);
-    font-size: 18vw;
+    font-size: 15vw;
 }
 `
 

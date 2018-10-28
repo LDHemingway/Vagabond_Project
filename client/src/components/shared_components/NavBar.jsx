@@ -14,14 +14,19 @@ p {
   color: rgba(255,150,50, 0.8);
   font-size: 20px;
   padding: 10px;
-  font-weight: bold;
   margin: 0;
 }
 
-  img {
-    padding: 10px;
-    height: 30px;
+img {
+  padding: 7px;
+  height: 36px;
+}
+
+@media (max-width: 500px) {
+  p {
+    font-size: 16px;
   }
+}
 `
 
 export default class NavBar extends Component {
@@ -29,6 +34,7 @@ export default class NavBar extends Component {
     return (
       <StyledNavBar>
         <p>Sign Up | Log In</p>
+        {this.props.title ? <p>{this.props.title}</p> : null}
         {this.props.onLanding ? null :
           <Link to='/'>
             <Logo />

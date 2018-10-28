@@ -3,6 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import LandingPage from "./components/LandingPage"
 import HomePage from './components/HomePage';
+import CityPage from './components/CityPage';
+import UserProfilePage from './components/UserProfilePage';
+import PostPage from './components/PostPage';
 
 class App extends Component {
   render() {
@@ -11,6 +14,9 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/home' component={HomePage} />
+          <Route exact path='/cities/:cityId' component={CityPage} />
+          <Route exact path='/users/:userId' component={UserProfilePage} />
+          <Route exact path='/posts/:postId' component={PostPage} />
           <Route path='*' component={LandingPage} />
         </Switch>
       </Router>

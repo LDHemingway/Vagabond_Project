@@ -11,7 +11,8 @@ export default class NewPostPage extends Component {
         },
         city: {
             location: ''
-        }
+        },
+        redirect: false
     }
 
     getCity = async () => {
@@ -35,7 +36,7 @@ export default class NewPostPage extends Component {
                     city_id: this.props.match.params.cityId
                 }
             })
-            return (<Redirect to={`/cities/${this.props.match.params.cityId}`} />)
+            this.setState({ redirect: true })
         }
     }
 
@@ -46,6 +47,10 @@ export default class NewPostPage extends Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={`/cities/${this.props.match.params.cityId}`} />
+        }
+
         return (
             <div>
                 <NavBar title={`New Post for ${this.state.city.location}`} />

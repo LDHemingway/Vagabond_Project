@@ -33,8 +33,8 @@ export default class LandingPage extends Component {
     return (
       <StyledBackground>
         <div className="overlay">
-          <Link to='/home'>
             <NavBar onLanding={true} />
+          <Link to='/home'>
             <StyledWelcome>
               <Logo />
             </StyledWelcome>

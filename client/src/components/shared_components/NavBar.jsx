@@ -10,6 +10,10 @@ justify-content: space-between;
 align-items: center;
 height: 50px;
 
+a {
+  text-decoration: none;
+}
+
 p {
   color: rgba(255,150,50, 0.8);
   font-size: 20px;
@@ -33,7 +37,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <StyledNavBar>
-        <p>Sign Up | Log In</p>
+        <Link to='/users/1'><p>Sign Up | Log In</p></Link>
         {this.props.title ? <p>{this.props.title}</p> : null}
         {this.props.onLanding ? null :
           <Link to='/'>

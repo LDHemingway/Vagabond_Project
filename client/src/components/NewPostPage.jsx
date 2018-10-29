@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from './shared_components/NavBar';
-import Axios from 'axios';
+import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 
 export default class NewPostPage extends Component {
@@ -16,7 +16,7 @@ export default class NewPostPage extends Component {
     }
 
     getCity = async () => {
-        const response = await Axios.get(`/api/cities/${this.props.match.params.cityId}`)
+        const response = await axios.get(`/api/cities/${this.props.match.params.cityId}`)
         console.log(response)
         this.setState({ city: response.data[0]})
       }
@@ -28,7 +28,7 @@ export default class NewPostPage extends Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         if (this.state.newPost.title) {
-            await Axios.post(`/api/cities/${this.props.match.params.cityId}/posts`, this.state.newPost)
+            await axios.post(`/api/cities/${this.props.match.params.cityId}/posts`, this.state.newPost)
             this.setState({
                 newPost: {
                     title: '',

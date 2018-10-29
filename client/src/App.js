@@ -7,6 +7,7 @@ import CityPage from './components/CityPage';
 import UserProfilePage from './components/UserProfilePage';
 import PostPage from './components/PostPage';
 import NewPostPage from './components/NewPostPage';
+import EditPost from './components/EditPost';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path='/users/:userId' component={UserProfilePage} />
           <Route exact path='/posts/:postId' component={PostPage} />
           <Route exact path='/cities/:cityId/posts/new' component={NewPostPage} />
+          <Route exact path='/cities/:cityId/posts/:id/edit' component={EditPost}/>
           <Route path='*' component={LandingPage} />
         </Switch>
       </Router>

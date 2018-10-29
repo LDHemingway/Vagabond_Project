@@ -10,7 +10,7 @@ const StyledDiv = styled.div`
 text-align: center;
 
 button {
-  margin: 0 auto;
+  margin: 30px auto;
   padding: 5px 20px;
   font-weight: 400;
   font-size: 1.4em;
@@ -22,9 +22,10 @@ button {
   max-width: 50vw;
   color: rgba(255,150,50, 0.8);
 }
-button:hover {
-  transform: scale(1.1);
-}
+`
+const PostsContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
 `
 
 
@@ -62,10 +63,12 @@ export default class CityPage extends Component {
           title={this.state.city.location}
           imageSrc={this.state.city.picture_url}
         />
-
+        <Link to={`/cities/${this.props.match.params.cityId}/posts/new`} ><button>+ New Post</button></Link>      
+        <PostsContainer>
         <PostList posts={this.state.posts} />
+        </PostsContainer>
 
-        <Link to={`/cities/${this.props.match.params.cityId}/posts/new`} ><button>+ New Post</button></Link>
+        
       </StyledDiv>
     )
   }

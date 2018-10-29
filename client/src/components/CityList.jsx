@@ -2,12 +2,19 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
+import SingleCityImage from './SingleCityImage';
 
 const StyledDiv = styled.div`
 display: flex;
 justify-content: center;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+text-shadow: 1px 1px gray;
+padding-top: 30px;
+
 a {
-    margin: 10px;
+   margin: 10px;
 }
 `
 export default class CityList extends Component {
@@ -28,7 +35,7 @@ componentDidMount = async () => {
 
     render() {
         const cityList = this.state.cities.map((city, i) => {
-            return <Link key={i} to={`/cities/${city.id}`}>{city.location}</Link>
+            return <Link key={i} to={`/cities/${city.id}`}><SingleCityImage location={city.location} image={city.picture_url}/></Link>
         })
         return (
             <StyledDiv>

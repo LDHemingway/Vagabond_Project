@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import NavBar from './shared_components/NavBar';
 import Logo from './shared_components/Logo';
+import CityList from './CityList';
 
 const StyledBackground = styled.div`
-  background-image: url("https://www.wheretraveler.com/sites/default/files/styles/promoted_image_social_large/public/skyline-atlanta_c-davidkosmossmith-flickr.jpg?itok=uMQTObyt");
+  background-image: url("https://www.atlantaga.gov/Home/ShowImage?id=3272&t=636335665341170000");
   background-size: cover;
   background-position: center;
 
@@ -27,20 +28,33 @@ const StyledWelcome = styled.div`
     width: 70vw;
   }
 `
+const CityContainer = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: white;
+`
+const BackgroundContainer = styled.div`
+  /* background-color: rgba(255,150,50, 0.8); */
+`
 
 export default class LandingPage extends Component {
   render() {
     return (
+      <div>
       <StyledBackground>
         <div className="overlay">
             <NavBar onLanding={true} />
-          <Link to='/home'>
             <StyledWelcome>
               <Logo />
             </StyledWelcome>
-          </Link>
         </div>
       </StyledBackground>
+<BackgroundContainer>
+      <CityContainer>
+        <CityList/>
+      </CityContainer>
+      </BackgroundContainer>
+      </div>
     )
   }
 }

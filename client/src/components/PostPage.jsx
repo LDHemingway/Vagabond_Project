@@ -30,7 +30,7 @@ export default class PostPage extends Component {
       image_url: ''
     },
     city: {
-      id: 1,
+      id: 4,
       location: ''
     }
   }
@@ -43,18 +43,18 @@ export default class PostPage extends Component {
   }
 
   getInfo = async () => {
-    let user = { ...this.state.user }
-    const response = await Axios.get(`/api/users/${this.state.post.user_id}`)
-    user = response.data[0]
+    // let user = { ...this.state.user }
+    // const response = await Axios.get(`/api/users/1`)
+    // user = response.data[0]
     let city = { ...this.state.city }
     const cityResponse = await Axios.get(`/api/cities/${this.state.post.city_id}`)
-    city = cityResponse.data
-    this.setState({ user, city })
+    city = cityResponse.data[0]
+    this.setState({ city })
   }
 
-  componentDidMount() {
-    this.getPost()
-    this.getInfo()
+  componentDidMount = async () => {
+    await this.getPost()
+    await this.getInfo()
   }
 
   render() {

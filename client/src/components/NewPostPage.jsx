@@ -2,6 +2,41 @@ import React, { Component } from 'react'
 import NavBar from './shared_components/NavBar';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledForm = styled.form`
+text-align: center;
+
+input {
+  height: 30px;
+  width: 280px;
+  font-size: 1.1em;
+}
+
+[type~=submit] {
+  margin: 20px;
+  padding-bottom: 36px;
+  font-weight: 400;
+  font-size: 1.4em;
+  border-radius: 0 0 9px 0;
+  border-top: none;
+  border-left: none;
+  border-bottom: 2px solid rgba(255,150,50, 0.8);
+  border-right: 2px solid rgba(255,150,50, 0.8);
+  max-width: 50vw;
+  color: rgba(255,150,50, 0.8);
+}
+[type~=submit]:hover {
+  transform: scale(1.1);
+}
+
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  font-size: 1.6em;
+  color:  rgba(255,150,50, 0.8);
+}
+`
 
 export default class NewPostPage extends Component {
     state = {
@@ -54,7 +89,7 @@ export default class NewPostPage extends Component {
         return (
             <div>
                 <NavBar title={`New Post for ${this.state.city.location}`} />
-                <form onSubmit={this.handleSubmit} >
+                <StyledForm onSubmit={this.handleSubmit} >
                     <p>Title</p>
                     <input placeholder='Title'
                         type='text'
@@ -75,7 +110,7 @@ export default class NewPostPage extends Component {
                         <input type='submit' value='Create' />
                     </div>
 
-                </form>
+                </StyledForm>
             </div>
         )
     }

@@ -5,15 +5,39 @@ import { Link, Redirect } from 'react-router-dom'
 import NavBar from './shared_components/NavBar'
 
 const StyledDiv = styled.div`
+text-align: center;
+
 .post-header {
   text-align: center;
   img {
-    width: 200px;
-  }
+  height: 400px;
+  border-radius: 50%;
+}
 }
 
 p {
 margin: 20px;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+a {
+  color: rgba(255,150,50, 0.8);
+}
+
+h4 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+button {
+  border: none;
+  background: none;
+  color:  rgba(255,150,50, 0.8);
+  font-size: 1.2em;
 }
 `
 
@@ -71,31 +95,39 @@ export default class PostPage extends Component {
   render() {
     if (this.state.redirect) {
       return <Redirect to={`/cities/${this.state.post.city_id}`} />
-  }
+    }
 
     return (
-      <StyledDiv>
+      <div>
         <NavBar title={this.state.post.title} />
-        <div className='post-header'>
-          {/* <Link to={`/users/${this.state.user.id}`} >
+        <StyledDiv>
+          <div className='post-header'>
+            {/* <Link to={`/users/${this.state.user.id}`} >
             <img src={'https://thumbs.dreamstime.com/z/gl%C3%BCckliche-daumen-des-jungen-mannes-oben-lokalisiert-auf-wei%C3%9Fem-hintergrund-31653620.jpg'} alt='userpic' />
           </Link>
           <h4>Author: <Link to={`/users/${this.state.user.id}`} >{this.state.user.name}</Link></h4> */}
-          <h4>City: <Link to={`/cities/${this.state.city.id}`} >{this.state.city.location}</Link></h4>
-        </div>
-        <p>{this.state.post.comment}</p>
-        <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}>Edit</Link>
-         {this.state.showDelete ?
-          <div>
-            <p>Are you sure you want to delete "{this.state.post.title}"?</p>
-            <button onClick={this.showDelete}>Cancel</button>
-            <p>or</p>
-            <button onClick={this.deletePost}>Delete Post :(</button>
-          </div>
-          :
-          <button id='delete' onClick={this.showDelete}>Delete</button>}
 
-      </StyledDiv>
+            <img src='http://t.upstc.com/dAhP9HrDiyamBY1eTS1wC91_5ho=/720x0/smart/upout.data.live/activities/2/16551/original_1377631307.jpg' alt='post' />
+
+            <h4>City: <Link to={`/cities/${this.state.city.id}`} >{this.state.city.location}</Link></h4>
+          </div>
+
+          <p>{this.state.post.comment}</p>
+
+          <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>
+
+          {this.state.showDelete ?
+            <div>
+              <p>Are you sure you want to delete "{this.state.post.title}"?</p>
+              <button onClick={this.showDelete}>Cancel</button>
+              <p>or</p>
+              <button onClick={this.deletePost}>Delete Post :(</button>
+            </div>
+            :
+            <button id='delete' onClick={this.showDelete}><i className="far fa-trash-alt"></i></button>}
+
+        </StyledDiv>
+      </div>
     )
   }
 }

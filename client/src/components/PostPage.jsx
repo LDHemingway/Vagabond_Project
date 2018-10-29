@@ -84,7 +84,7 @@ export default class PostPage extends Component {
           <h4>City: <Link to={`/cities/${this.state.city.id}`} >{this.state.city.location}</Link></h4>
         </div>
         <p>{this.state.post.comment}</p>
-
+        <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}>Edit</Link>
          {this.state.showDelete ?
           <div>
             <p>Are you sure you want to delete "{this.state.post.title}"?</p>

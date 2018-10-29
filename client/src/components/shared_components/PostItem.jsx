@@ -21,7 +21,6 @@ export default class PostItem extends Component {
           <h4>{this.props.post.title}</h4>
         </Link>
         <p>{this.props.post.comment}</p>
-        <Link to={`/cities/${this.props.post.city_id}/posts/${this.props.post.id}/edit`}>Edit</Link>
      
       </StyledDiv>
     )

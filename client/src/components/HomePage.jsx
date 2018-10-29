@@ -16,7 +16,7 @@ export default class HomePage extends Component {
         <NavBar />
         <div className="body">
           <MainImage
-            title={'Atlanta'}
+            title={'Cities'}
             imageSrc={'https://www.atlantaga.gov/Home/ShowImage?id=3272&t=636335665341170000'}
           />
           <CityList />

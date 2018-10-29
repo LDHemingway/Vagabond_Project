@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+
 import { Link } from 'react-router-dom'
 import NavBar from './shared_components/NavBar';
 import MainImage from './shared_components/MainImage';
 import PostList from './shared_components/PostList';
 import Axios from 'axios';
+
 
 export default class CityPage extends Component {
   state = {

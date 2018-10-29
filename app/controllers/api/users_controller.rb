@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        @user = [User.find(params[:id]), User.find(params[:id]).posts.reverse]
+        @user = [User.find(params[:id]), User.find(params[:id]).posts.order("created_at DESC")]
         render json: @user
     end
 

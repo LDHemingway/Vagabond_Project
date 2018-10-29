@@ -83,13 +83,13 @@ export default class PostPage extends Component {
     await this.getInfo()
   }
 
-  showDelete = () => {
-    this.setState({ showDelete: !this.state.showDelete })
-  }
-
   deletePost = async () => {
     await axios.delete(`/api/cities/${this.state.post.city_id}/posts/${this.state.post.id}`)
     this.setState({ redirect: true })
+  }
+
+  showDelete = () => {
+    this.setState({ showDelete: !this.state.showDelete })
   }
 
   render() {
@@ -102,10 +102,6 @@ export default class PostPage extends Component {
         <NavBar title={this.state.post.title} />
         <StyledDiv>
           <div className='post-header'>
-            {/* <Link to={`/users/${this.state.user.id}`} >
-            <img src={'https://thumbs.dreamstime.com/z/gl%C3%BCckliche-daumen-des-jungen-mannes-oben-lokalisiert-auf-wei%C3%9Fem-hintergrund-31653620.jpg'} alt='userpic' />
-          </Link>
-          <h4>Author: <Link to={`/users/${this.state.user.id}`} >{this.state.user.name}</Link></h4> */}
 
             <img src='http://t.upstc.com/dAhP9HrDiyamBY1eTS1wC91_5ho=/720x0/smart/upout.data.live/activities/2/16551/original_1377631307.jpg' alt='post' />
 
@@ -116,16 +112,15 @@ export default class PostPage extends Component {
 
           <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>
 
-          {this.state.showDelete ?
+          {/* {this.state.showDelete ?
             <div>
               <p>Are you sure you want to delete "{this.state.post.title}"?</p>
               <button onClick={this.showDelete}>Cancel</button>
               <p>or</p>
               <button onClick={this.deletePost}>Delete Post :(</button>
             </div>
-            :
+            : */
             <button id='delete' onClick={this.showDelete}><i className="far fa-trash-alt"></i></button>}
-
         </StyledDiv>
       </div>
     )

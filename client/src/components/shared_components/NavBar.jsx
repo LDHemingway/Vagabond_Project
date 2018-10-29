@@ -38,7 +38,7 @@ export default class NavBar extends Component {
     return (
       <StyledNavBar>
         <Link to='/users/1'><p>Sign Up | Log In</p></Link>
-        {this.props.title ? <p>{this.props.title}</p> : null}
+        {this.props.title ? <p><strong>{this.props.title}</strong></p> : null}
         {this.props.onLanding ? null :
           <Link to='/'>
             <Logo />

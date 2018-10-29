@@ -5,7 +5,7 @@ class Api::CitiesController < ApplicationController
   end
 
   def show
-    @city = City.find(params[:id])
+    @city = [City.find(params[:id]), City.find(params[:id]).posts]
     render json: @city
   end
 

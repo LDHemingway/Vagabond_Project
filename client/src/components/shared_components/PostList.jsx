@@ -10,7 +10,7 @@ export default class PostList extends Component {
 
   render() {
     const postList = this.props.posts.map((post, i) => {
-        return <PostItem post={post} />
+        return <PostItem key={i} post={post} />
     })
 
     return (

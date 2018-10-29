@@ -21,7 +21,7 @@ export default class CityList extends Component {
 
     render() {
         const cityList = this.state.cities.map((city, i) => {
-            return <Link to={`/cities/${city.id}`}>{city.location}</Link>
+            return <Link key={i} to={`/cities/${city.id}`}>{city.location}</Link>
         })
         return (
             <StyledDiv>

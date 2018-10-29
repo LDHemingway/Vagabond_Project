@@ -13,15 +13,16 @@ a {
 `
 
 export default class PostItem extends Component {
+
   render() {
     return (
       <StyledDiv>
         <Link to={`/posts/${this.props.post.id}`} >
-        <h4>{this.props.post.title}</h4>
+          <h4>{this.props.post.title}</h4>
         </Link>
         <p>{this.props.post.comment}</p>
         <Link to={`/posts/${this.props.post.id}/edit`}>Edit</Link>
-        <Link to={`/`}>Delete</Link>
+     
       </StyledDiv>
     )
   }

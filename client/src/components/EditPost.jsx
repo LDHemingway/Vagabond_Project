@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NavBar from './shared_components/NavBar'
 import axios from 'axios'
-
+import {Redirect} from 'react-router-dom'
 
 export default class EditPost extends Component {
   state = {
@@ -18,14 +18,31 @@ export default class EditPost extends Component {
 getPost = async () => {
   const response = await axios.get(`/api/cities/${this.props.match.params.cityId}/posts/${this.props.match.params.id}`)
   console.log(response)
-  this.setState({ post: response.data})
+  this.setState({ updatedPost: response.data, post: response.data})
 }
 
 componentDidMount = async () => {
   await this.getPost()
 }
 
+handleChange = (event) =>{
+  const updatedPost = {...this.state.updatedPost}
+  updatedPost[event.target.name] = event.target.value
+  this.setState({updatedPost})
+}
+
+handleSubmit = async(event) => {
+  event.preventDefault()
+  if (this.state.updatedPost.title) {
+    await axios.put(`/api/cities/${this.props.match.params.cityId}/posts/${this.props.match.params.id}`, this.state.updatedPost)
+  }
+  this.setState({ redirect: true })
+}
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={`/posts/${this.props.match.params.id}`} />
+  }
+
     return (
       <div>
       <NavBar title={`Update Post for ${this.state.post.title}`} />

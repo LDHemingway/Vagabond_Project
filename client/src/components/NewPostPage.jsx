@@ -52,7 +52,6 @@ export default class NewPostPage extends Component {
 
     getCity = async () => {
         const response = await axios.get(`/api/cities/${this.props.match.params.cityId}`)
-        console.log(response)
         this.setState({ city: response.data[0]})
       }
 

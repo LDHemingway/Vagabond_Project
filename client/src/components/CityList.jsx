@@ -24,7 +24,6 @@ export default class CityList extends Component {
 
 getCity = async () => {
   const response = await axios.get(`/api/cities`)
-    console.log(response)
     return response.data
   }
 

@@ -46,18 +46,19 @@ const StyledOverlay = styled.div`
 #modal-overlay {
   z-index: 1000;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
   width: 100%;
   height: 100%;
   background-color: rgba(50,50,55,0.5);
   display: flex;
   opacity: 1;
-  transition: opacity .2s;
+  transform: scale(1) translate(-50%, -50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
   &.hidden {
   opacity: 0;
   z-index: -1000;
-  transform: scale(0.96) translate(-50%, -46%);
+  transform: scale(1) translate(-50%, -50%);
 }
 }
 `
@@ -65,6 +66,9 @@ const StyledOverlay = styled.div`
 const StyledModal = styled.div`
 button {
   margin: 10px 20px;
+}
+p {
+  text-align: center;
 }
 #delete {
   color: red;
@@ -78,9 +82,10 @@ z-index: 1010;
 padding: 30px;
 border-radius: 3px;
 background: #fff;
-transform: scale(1.0) translate(-50%, -50%);
+transform: scale(1) translate(-50%, -50%);
 width: 300px;
 &.hidden {
+  transition: transform 0.3s ease, opacity 0.2s ease;
   opacity: 0;
   z-index: -1000;
   transform: scale(0.96) translate(-50%, -46%);

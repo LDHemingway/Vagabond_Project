@@ -29,7 +29,7 @@ input {
   font-size: 1.1em;
 }
 textarea {
-    height: 280px;
+    height: 180px;
     width: 90%;
     max-width: 800px;
     font-size: 1.1em;
@@ -57,6 +57,13 @@ h1 {
   color:  rgba(255,150,50, 0.8);
   margin: 0;
   padding: 20px;
+}
+h6 {
+    color: red;
+    margin: 3px;
+}
+.hidden {
+    display: none;
 }
 `
 
@@ -88,7 +95,9 @@ export default class NewPostPage extends Component {
         city: {
             location: ''
         },
-        redirect: false
+        redirect: false,
+        titleError: false,
+        contentError: false
     }
 
     getCity = async () => {
@@ -102,7 +111,13 @@ export default class NewPostPage extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        if (this.state.newPost.title) {
+        if (this.state.newPost.title.length > 200 || this.state.newPost.title.length < 1) {
+            return this.setState({titleError: true })
+        } else if (!this.state.newPost.content) {
+            this.setState({titleError: false })
+            this.setState({contentError: true })
+        }
+        else {
             await axios.post(`/api/cities/${this.props.match.params.cityId}/posts`, this.state.newPost)
             this.setState({
                 newPost: {
@@ -140,6 +155,7 @@ export default class NewPostPage extends Component {
                                 value={this.state.newPost.title}
                                 onChange={this.handleChange}
                             />
+                            <h6 className={this.state.titleError ? '' : 'hidden'} >A post's title should be 1-200 characters.</h6>
 
                             <p>Image</p>
                             <input placeholder='Post Image Adress'
@@ -155,6 +171,7 @@ export default class NewPostPage extends Component {
                                 value={this.state.newPost.content}
                                 onChange={this.handleChange}
                             />
+                            <h6 className={this.state.contentError ? '' : 'hidden'} >A post's content must not be empty.</h6>
 
                             <div>
                                 <input type='submit' value='Create' />

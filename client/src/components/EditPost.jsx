@@ -58,6 +58,13 @@ h1 {
   margin: 0;
   padding: 20px;
 }
+h6 {
+    color: red;
+    margin: 3px;
+}
+.hidden {
+    display: none;
+}
 `
 const ColorDiv = styled.div`
 background-color: #fff;
@@ -87,7 +94,9 @@ export default class EditPost extends Component {
     post: {
       title: ''
     },
-    redirect: false
+    redirect: false,
+    titleError: false,
+    contentError: false
   }
 
   getPost = async () => {
@@ -107,10 +116,16 @@ export default class EditPost extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault()
-    if (this.state.updatedPost.title) {
-      await axios.put(`/api/cities/${this.props.match.params.cityId}/posts/${this.props.match.params.id}`, this.state.updatedPost)
+    if (this.state.updatedPost.title.length > 200 || this.state.updatedPost.title.length < 1) {
+      return this.setState({ titleError: true })
+    } else if (!this.state.updatedPost.content) {
+      this.setState({ titleError: false })
+      this.setState({ contentError: true })
     }
-    this.setState({ redirect: true })
+    else {
+      await axios.put(`/api/cities/${this.props.match.params.cityId}/posts/${this.props.match.params.id}`, this.state.updatedPost)
+      this.setState({ redirect: true })
+    }
   }
   render() {
     if (this.state.redirect) {
@@ -131,6 +146,7 @@ export default class EditPost extends Component {
                 value={this.state.updatedPost.title}
                 onChange={this.handleChange}
               />
+              <h6 className={this.state.titleError ? '' : 'hidden'} >A post's title should be 1-200 characters.</h6>
 
               <p>Image</p>
               <input placeholder='Post Image Adress'
@@ -146,6 +162,7 @@ export default class EditPost extends Component {
                 value={this.state.updatedPost.content}
                 onChange={this.handleChange}
               />
+              <h6 className={this.state.contentError ? '' : 'hidden'} >A post's content must not be empty.</h6>
 
               <div>
                 <input type='submit' value='Update' />

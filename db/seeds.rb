@@ -12,6 +12,7 @@ User.destroy_all
 atlanta = City.create(location: "Atlanta", picture_url: "https://www.wheretraveler.com/sites/default/files/styles/promoted_image_social_large/public/skyline-atlanta_c-davidkosmossmith-flickr.jpg?itok=uMQTObyt" )
 san_francisco = City.create(location: "San Francisco", picture_url: "https://images.unsplash.com/photo-1495755021184-210b522ccb23?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4f935e3e49567f6f26f345895d6343ed&auto=format&fit=crop&w=1500&q=80")
 london = City.create(location: "London", picture_url: "https://images.unsplash.com/photo-1508710985089-e985fabbb184?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0da2d988270049fdd306a9d11c4e2aad&auto=format&fit=crop&w=2000&q=80")
+newyork = City.create(location: "New York", picture_url: "https://images.unsplash.com/photo-1531449862596-16e4c62e2b10?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7261ec0c2507c69c76ec73a01162637b&auto=format&fit=crop&w=1050&q=80")
 
 bob = User.create(name: "Bob", current_city: "Atlanta")
 steve = User.create(name: "Steve", current_city: "Seattle")

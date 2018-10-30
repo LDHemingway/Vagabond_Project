@@ -146,7 +146,7 @@ export default class PostPage extends Component {
         <StyledDiv>
           <div className='post-header'>
 
-            <MainImage title={this.state.post.title} imageSrc={'http://t.upstc.com/dAhP9HrDiyamBY1eTS1wC91_5ho=/720x0/smart/upout.data.live/activities/2/16551/original_1377631307.jpg'} />
+            <MainImage title={this.state.post.title} imageSrc={this.state.post.photo_url} />
 
           </div>
       <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>

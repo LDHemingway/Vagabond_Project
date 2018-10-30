@@ -1,8 +1,26 @@
 import React, { Component } from 'react'
 import NavBar from './shared_components/NavBar';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import styled from 'styled-components'
+
+const StyledDiv = styled.div`
+text-align: center;
+button {
+  height: 50px;
+  padding: 10px;
+  margin: 20px;
+  font-weight: 400;
+  font-size: 1.4em;
+  border-radius: 0 0 9px 0;
+  border: 2px solid rgba(255,150,50, 0.8);
+  max-width: 50vw;
+  color: rgba(255,150,50, 0.8);
+}
+button:hover {
+  color: rgb(60,190,180);
+}
+`
 
 const StyledForm = styled.form`
 text-align: center;
@@ -12,22 +30,25 @@ input {
   width: 280px;
   font-size: 1.1em;
 }
-
+textarea {
+    height: 280px;
+    width: 280px;
+    max-width: 280px;
+    font-size: 1.1em;
+}
 [type~=submit] {
+    height: 50px;
+  padding: 10px;
   margin: 20px;
-  padding-bottom: 36px;
   font-weight: 400;
   font-size: 1.4em;
   border-radius: 0 0 9px 0;
-  border-top: none;
-  border-left: none;
-  border-bottom: 2px solid rgba(255,150,50, 0.8);
-  border-right: 2px solid rgba(255,150,50, 0.8);
+  border: 2px solid rgba(255,150,50, 0.8);
   max-width: 50vw;
   color: rgba(255,150,50, 0.8);
 }
 [type~=submit]:hover {
-  transform: scale(1.1);
+    color: rgb(60,190,180);
 }
 
 h1 {
@@ -42,7 +63,8 @@ export default class NewPostPage extends Component {
     state = {
         newPost: {
             title: '',
-            comment: ''
+            content: '',
+            photo_url: ''
         },
         city: {
             location: ''
@@ -52,8 +74,8 @@ export default class NewPostPage extends Component {
 
     getCity = async () => {
         const response = await axios.get(`/api/cities/${this.props.match.params.cityId}`)
-        this.setState({ city: response.data[0]})
-      }
+        this.setState({ city: response.data[0] })
+    }
 
     componentDidMount = async () => {
         this.getCity()
@@ -66,7 +88,7 @@ export default class NewPostPage extends Component {
             this.setState({
                 newPost: {
                     title: '',
-                    comment: '',
+                    content: '',
                     city_id: this.props.match.params.cityId
                 }
             })
@@ -90,18 +112,25 @@ export default class NewPostPage extends Component {
                 <NavBar title={`New Post for ${this.state.city.location}`} />
                 <StyledForm onSubmit={this.handleSubmit} >
                     <p>Title</p>
-                    <input placeholder='Title'
+                    <input placeholder='Post Title'
                         type='text'
                         name='title'
                         value={this.state.newPost.title}
                         onChange={this.handleChange}
                     />
 
-                    <p>Comment</p>
-                    <input placeholder='Comment'
+                    <p>Image</p>
+                    <input placeholder='Post Image Adress'
                         type='text'
-                        name='comment'
-                        value={this.state.newPost.comment}
+                        name='photo_url'
+                        value={this.state.newPost.photo_url}
+                        onChange={this.handleChange}
+                    />
+
+                    <p>Content</p>
+                    <textarea placeholder='Post Content'
+                        name='content'
+                        value={this.state.newPost.content}
                         onChange={this.handleChange}
                     />
 
@@ -110,6 +139,9 @@ export default class NewPostPage extends Component {
                     </div>
 
                 </StyledForm>
+                <StyledDiv>
+                    <Link to={`/cities/${this.props.match.params.cityId}`} ><button>Cancel</button></Link>
+                </StyledDiv>
             </div>
         )
     }

@@ -48,7 +48,7 @@ export default class NavBar extends Component {
         <Link id='sign-in' to='/users/1'><p>Sign Up | Log In</p></Link>
         {this.props.title ? <p>{this.props.title}</p> : null}
         {this.props.onLanding ? null :
-          <Link to='/home'>
+          <Link to='/'>
             <Logo />
           </Link>
         }

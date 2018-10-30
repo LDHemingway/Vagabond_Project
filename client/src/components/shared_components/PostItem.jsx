@@ -23,6 +23,9 @@ a {
     color: rgba(255,150,50, 0.8);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+p{
+  text-align: left;
+}
 `
 
 export default class PostItem extends Component {

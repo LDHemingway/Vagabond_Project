@@ -9,15 +9,15 @@ const StyledCity = styled.div`
    max-height:300px;
    width: auto;
    align-items: center;
+&:hover {
+    opacity: 0.5;
+}
 
 `
 const StyledImage = styled.img`
    height: 250px;
    width: 100%;
 
-   &:hover {
-       opacity: 0.5;
-   }
 `
 const StyledText = styled.div`
    position: absolute;

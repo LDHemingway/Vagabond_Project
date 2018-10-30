@@ -3,20 +3,21 @@ import axios from 'axios';
 import styled from 'styled-components'
 import { Link, Redirect } from 'react-router-dom'
 import NavBar from './shared_components/NavBar'
+import MainImage from './shared_components/MainImage'
 
 const StyledDiv = styled.div`
 text-align: center;
 
 .post-header {
   text-align: center;
-  img {
-  height: 400px;
-  border-radius: 50%;
-}
 }
 
 p {
-margin: 20px;
+margin: 20px auto;
+padding: 0 10px;
+text-align: left;
+max-width: 800px;
+white-space: pre-line;
 }
 
 a {
@@ -30,10 +31,14 @@ h4 {
 }
 
 button {
+  margin-top: 30px;
   border: none;
   background: none;
   color:  rgba(255,150,50, 0.8);
   font-size: 1.2em;
+}
+button:hover {
+  color: rgb(60,190,180);
 }
 `
 
@@ -86,7 +91,7 @@ export default class PostPage extends Component {
   state = {
     post: {
       title: '',
-      comment: '',
+      content: '',
       user_id: 1
     },
     user: {
@@ -137,33 +142,37 @@ export default class PostPage extends Component {
     if (this.state.redirect) {
       return <Redirect to={`/cities/${this.state.post.city_id}`} />
     }
-
+    const navTitle = this.state.city.location
+    const navId = this.state.city.id
     return (
       <div>
-        <NavBar title={this.state.post.title} />
+        <NavBar title={<Link to={`/cities/${navId}`}>{navTitle}</Link>} />
         <StyledDiv>
           <div className='post-header'>
 
-            <img src='http://t.upstc.com/dAhP9HrDiyamBY1eTS1wC91_5ho=/720x0/smart/upout.data.live/activities/2/16551/original_1377631307.jpg' alt='post' />
+            <MainImage title={this.state.post.title} imageSrc={this.state.post.photo_url} />
 
-            <h4>City: <Link to={`/cities/${this.state.city.id}`} >{this.state.city.location}</Link></h4>
           </div>
 
-          <p>{this.state.post.comment}</p>
+          <Link to={`/cities/${this.state.post.city_id}`} ><button><i class="fas fa-arrow-left"></i></button></Link>
 
           <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>
 
           <button id='delete' onClick={this.showDelete}><i className="far fa-trash-alt"></i></button>
 
+          <p>{this.state.post.content}</p>
+
+
+
           <StyledOverlay>
             <StyledModal className={this.state.showDelete ? '' : "hidden"}>
               <p>Are you sure you want to delete "{this.state.post.title}"?</p>
               <button onClick={this.showDelete}>Cancel</button>
-              <button  id='delete' onClick={this.deletePost} >Delete Post</button>
+              <button id='delete' onClick={this.deletePost} >Delete Post</button>
             </StyledModal>
             <div id='modal-overlay'
-            onClick={this.showDelete}
-            className={this.state.showDelete ? '' : 'hidden'}></div>
+              onClick={this.showDelete}
+              className={this.state.showDelete ? '' : 'hidden'}></div>
           </StyledOverlay>
         </StyledDiv>
       </div>

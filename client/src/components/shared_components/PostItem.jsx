@@ -6,16 +6,15 @@ const StyledDiv = styled.div`
 margin: 30px;
 h4 {
   margin: 0 auto;
-  padding: 0 0 5px 0;
+  padding: 5px;
   font-weight: 400;
   font-size: 2em;
   border-radius: 0 0 9px 0;
-  border-bottom: 1px solid rgba(255,150,50, 0.8);
-  border-right: 1px solid rgba(255,150,50, 0.8);
+  border: 1px solid rgba(255,150,50, 0.8);
   max-width: 50vw;
 }
 h4:hover {
-  transform: scale(1.1);
+  color: rgb(60,190,180);
 }
 a {
     margin: 0 5px;
@@ -25,6 +24,14 @@ a {
 }
 p{
   text-align: left;
+  white-space: pre-line;
+}
+border: 1px solid rgb(60,190,180);
+border-radius: 0 0 9px 0;
+padding: 20px;
+box-shadow: 7px 10px rgb(230,232, 234);
+i {
+  font-size: 0.8em;
 }
 `
 
@@ -34,10 +41,10 @@ export default class PostItem extends Component {
     return (
       <StyledDiv>
         <Link to={`/posts/${this.props.post.id}`} >
-          <h4>{this.props.post.title}</h4>
+          <h4>{this.props.post.title} <i class="fas fa-arrow-right"></i></h4>
         </Link>
-        <p>{this.props.post.comment}</p>
-     
+        <p>{this.props.post.content}</p>
+
       </StyledDiv>
     )
   }

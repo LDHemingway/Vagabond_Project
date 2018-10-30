@@ -6,9 +6,8 @@ import SingleCityImage from './SingleCityImage';
 
 const StyledDiv = styled.div`
 display: flex;
-justify-content: center;
+justify-content: space-around;
 flex-wrap: wrap;
-justify-content: space-between;
 align-items: center;
 text-shadow: 1px 1px gray;
 padding-top: 30px;

@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const StyledCity = styled.div`
-   width: 800px;
+   max-width: 600px;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
    max-height:300px;
-   width: auto;
    align-items: center;
 &:hover {
     opacity: 0.5;
@@ -15,7 +14,7 @@ const StyledCity = styled.div`
 
 `
 const StyledImage = styled.img`
-   height: 250px;
+   max-height: 250px;
    width: 100%;
 
 `
@@ -23,7 +22,7 @@ const StyledText = styled.div`
    position: absolute;
    color: white;
    font-weight: 800;
-   font-size: 100px;
+   font-size: 80px;
    padding: 10px;
    @media (max-width: 600px) {
    font-size: 60px;

@@ -22,14 +22,33 @@ const StyledBackground = styled.div`
 const StyledWelcome = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 90%;
   img {
+    padding: 200px 0 0 0;
     width: 70vw;
+  }
+
+  i {
+    font-size: 100px;
+    margin: 60px 0 0 0;
+    color: rgba(250,250,250,0.8);
+  }
+
+  @media(min-width: 1000px) {
+    i {
+      margin: 30px 0 0 0;
+    }
+  }
+
+  @media(max-width: 600px) {
+    i {
+      font-size: 80px;
+    }
   }
 `
 const CityContainer = styled.div`
-  max-width: 900px;
   margin: 0 auto;
   background-color: white;
 `
@@ -41,19 +60,24 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div>
-      <StyledBackground>
-        <div className="overlay">
+        <StyledBackground>
+          <div className="overlay">
             <NavBar onLanding={true} />
             <StyledWelcome>
-              <Logo />
+              <div>
+                <Logo />
+              </div>
+              <div>
+                <i class="fas fa-arrow-circle-down"></i>
+              </div>
             </StyledWelcome>
-        </div>
-      </StyledBackground>
-<BackgroundContainer>
-      <CityContainer>
-        <CityList/>
-      </CityContainer>
-      </BackgroundContainer>
+          </div>
+        </StyledBackground>
+        <BackgroundContainer>
+          <CityContainer>
+            <CityList />
+          </CityContainer>
+        </BackgroundContainer>
       </div>
     )
   }

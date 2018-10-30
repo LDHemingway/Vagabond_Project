@@ -9,7 +9,6 @@ text-align: center;
 button {
   height: 50px;
   padding: 10px;
-  margin: 20px;
   font-weight: 400;
   font-size: 1.4em;
   border-radius: 0 0 9px 0;
@@ -56,6 +55,8 @@ h1 {
   font-weight: 400;
   font-size: 1.6em;
   color:  rgba(255,150,50, 0.8);
+  margin: 0;
+  padding: 20px;
 }
 `
 
@@ -63,16 +64,18 @@ const ColorDiv = styled.div`
 background-color: #fff;
 max-width: 800px;
 margin: 0 auto;
-height: 85vh;
+height: 100vh;
 border-left: 1px solid rgba(60,190,180, 0.5);
 border-right: 1px solid rgba(60,190,180, 0.5);
+box-shadow: 0 15px 30px rgb(200,200,200);
 `
 
 const CoolDiv = styled.div`
+border-top:  1px solid rgba(60,190,180, 0.5);
 background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/B2b8RSzfgivu3v9nb/modern-urban-sketch-city-center-with-skyscraper-building-cityscape-animated-available-in-4k-uhd-fullhd-and-hd-3d-video-animation-footage_sttrlm5ml_thumbnail-full15.png');
 background-size: contain;
 width: 100%;
-height: 85vh;
+height: 95vh;
 `
 
 export default class NewPostPage extends Component {

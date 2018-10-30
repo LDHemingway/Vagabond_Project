@@ -15,12 +15,12 @@ button {
   font-weight: 400;
   font-size: 1.4em;
   border-radius: 0 0 9px 0;
-  border-top: none;
-  border-left: none;
-  border-bottom: 2px solid rgba(255,150,50, 0.8);
-  border-right: 2px solid rgba(255,150,50, 0.8);
+  border: 2px solid rgba(255,150,50, 0.8);
   max-width: 50vw;
   color: rgba(255,150,50, 0.8);
+}
+button:hover {
+  color: rgb(60,190,180);
 }
 `
 const PostsContainer = styled.div`
@@ -56,7 +56,7 @@ export default class CityPage extends Component {
     return (
       <StyledDiv>
         <NavBar
-          title={'City Profile'}
+          title={<Link to={`/cities/`}>All Cities</Link>}
         />
 
         <MainImage

@@ -14,6 +14,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 a {
   text-decoration: none;
   margin: 0;
+  color: rgba(255,150,50, 0.8);
 }
 
 #sign-in {

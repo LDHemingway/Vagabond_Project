@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import NavBar from './shared_components/NavBar';
 import MainImage from './shared_components/MainImage';
 import CityList from './CityList';
+import Footer from './shared_components/Footer';
+
 
 const StyledDiv = styled.div`
 max-width: 800px;
@@ -21,6 +23,7 @@ export default class HomePage extends Component {
           />
           <CityList />
         </div>
+        <Footer />
       </StyledDiv>
     )
   }

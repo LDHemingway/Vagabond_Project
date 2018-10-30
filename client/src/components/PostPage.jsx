@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components'
 import { Link, Redirect } from 'react-router-dom'
 import NavBar from './shared_components/NavBar'
+import Footer from './shared_components/Footer';
 
 const StyledDiv = styled.div`
 text-align: center;
@@ -166,6 +167,7 @@ export default class PostPage extends Component {
             className={this.state.showDelete ? '' : 'hidden'}></div>
           </StyledOverlay>
         </StyledDiv>
+        <Footer />
       </div>
     )
   }

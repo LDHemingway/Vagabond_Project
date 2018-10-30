@@ -3,6 +3,7 @@ import NavBar from './shared_components/NavBar'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 import styled from 'styled-components'
+import Footer from './shared_components/Footer'
 
 const StyledForm = styled.form`
 text-align: center;
@@ -104,6 +105,7 @@ handleSubmit = async(event) => {
           </div>
 
       </StyledForm>
+      <Footer />
   </div>
 )
 }

@@ -8,6 +8,7 @@ import UserProfilePage from './components/UserProfilePage';
 import PostPage from './components/PostPage';
 import NewPostPage from './components/NewPostPage';
 import EditPost from './components/EditPost';
+import Footer from './components/shared_components/Footer';
 
 class App extends Component {
   render() {

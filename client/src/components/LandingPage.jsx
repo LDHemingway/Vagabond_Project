@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import NavBar from './shared_components/NavBar';
 import Logo from './shared_components/Logo';
 import CityList from './CityList';
+import Footer from './shared_components/Footer';
 
 const StyledBackground = styled.div`
   background-image: url("https://www.atlantaga.gov/Home/ShowImage?id=3272&t=636335665341170000");
@@ -53,6 +54,7 @@ export default class LandingPage extends Component {
       <CityContainer>
         <CityList/>
       </CityContainer>
+      <Footer />
       </BackgroundContainer>
       </div>
     )

@@ -5,6 +5,7 @@ import MainImage from './shared_components/MainImage';
 import PostList from './shared_components/PostList';
 import axios from 'axios';
 import styled from 'styled-components'
+import Footer from './shared_components/Footer';
 
 const StyledDiv = styled.div`
 text-align: center;
@@ -68,7 +69,7 @@ export default class CityPage extends Component {
         <PostList posts={this.state.posts} />
         </PostsContainer>
 
-        
+        <Footer />
       </StyledDiv>
     )
   }

@@ -32,8 +32,8 @@ input {
 }
 textarea {
     height: 280px;
-    width: 280px;
-    max-width: 280px;
+    width: 100%;
+    max-width: 800px;
     font-size: 1.1em;
 }
 [type~=submit] {

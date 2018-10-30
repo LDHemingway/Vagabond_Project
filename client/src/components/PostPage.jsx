@@ -13,7 +13,11 @@ text-align: center;
 }
 
 p {
-margin: 20px;
+margin: 20px auto;
+padding: 0 10px;
+text-align: left;
+max-width: 800px;
+white-space: pre-line;
 }
 
 a {
@@ -149,22 +153,26 @@ export default class PostPage extends Component {
             <MainImage title={this.state.post.title} imageSrc={this.state.post.photo_url} />
 
           </div>
-      <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>
 
-      <button id='delete' onClick={this.showDelete}><i className="far fa-trash-alt"></i></button>
+          <Link to={`/cities/${this.state.post.city_id}`} ><button><i class="fas fa-arrow-left"></i></button></Link>
+
+          <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>
+
+          <button id='delete' onClick={this.showDelete}><i className="far fa-trash-alt"></i></button>
 
           <p>{this.state.post.content}</p>
+
 
 
           <StyledOverlay>
             <StyledModal className={this.state.showDelete ? '' : "hidden"}>
               <p>Are you sure you want to delete "{this.state.post.title}"?</p>
               <button onClick={this.showDelete}>Cancel</button>
-              <button  id='delete' onClick={this.deletePost} >Delete Post</button>
+              <button id='delete' onClick={this.deletePost} >Delete Post</button>
             </StyledModal>
             <div id='modal-overlay'
-            onClick={this.showDelete}
-            className={this.state.showDelete ? '' : 'hidden'}></div>
+              onClick={this.showDelete}
+              className={this.state.showDelete ? '' : 'hidden'}></div>
           </StyledOverlay>
         </StyledDiv>
       </div>

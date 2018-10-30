@@ -8,11 +8,13 @@ import UserProfilePage from './components/UserProfilePage';
 import PostPage from './components/PostPage';
 import NewPostPage from './components/NewPostPage';
 import EditPost from './components/EditPost';
+import Footer from './components/shared_components/Footer';
 
 class App extends Component {
   render() {
     return (
       <Router>
+        <div>
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/home' component={HomePage} />
@@ -23,6 +25,8 @@ class App extends Component {
           <Route exact path='/cities/:cityId/posts/:id/edit' component={EditPost}/>
           <Route path='*' component={LandingPage} />
         </Switch>
+        <Footer />
+        </div>
       </Router>
     );
   }

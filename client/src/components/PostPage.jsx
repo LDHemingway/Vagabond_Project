@@ -19,10 +19,6 @@ p {
 margin: 20px;
 }
 
-button:hover {
-  transform: scale(1.1);
-}
-
 a {
   color: rgba(255,150,50, 0.8);
 }
@@ -38,6 +34,51 @@ button {
   background: none;
   color:  rgba(255,150,50, 0.8);
   font-size: 1.2em;
+}
+`
+
+const StyledOverlay = styled.div`
+#modal-overlay {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50,50,55,0.5);
+  display: flex;
+  opacity: 1;
+  transition: opacity .2s;
+  &.hidden {
+  opacity: 0;
+  z-index: -1000;
+  transform: scale(0.96) translate(-50%, -46%);
+}
+}
+`
+
+const StyledModal = styled.div`
+button {
+  margin: 10px 20px;
+}
+#delete {
+  color: red;
+}
+position: fixed;
+top: 50%;
+left: 50%;
+transition: transform 0.2s ease, opacity 0.2s ease;
+opacity: 100%;
+z-index: 1010;
+padding: 30px;
+border-radius: 3px;
+background: #fff;
+transform: scale(1.0) translate(-50%, -50%);
+width: 300px;
+&.hidden {
+  opacity: 0;
+  z-index: -1000;
+  transform: scale(0.96) translate(-50%, -46%);
 }
 `
 
@@ -112,15 +153,18 @@ export default class PostPage extends Component {
 
           <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>
 
-          {/* {this.state.showDelete ?
-            <div>
+          <button id='delete' onClick={this.showDelete}><i className="far fa-trash-alt"></i></button>
+
+          <StyledOverlay>
+            <StyledModal className={this.state.showDelete ? '' : "hidden"}>
               <p>Are you sure you want to delete "{this.state.post.title}"?</p>
               <button onClick={this.showDelete}>Cancel</button>
-              <p>or</p>
-              <button onClick={this.deletePost}>Delete Post :(</button>
-            </div>
-            : */
-            <button id='delete' onClick={this.showDelete}><i className="far fa-trash-alt"></i></button>}
+              <button  id='delete' onClick={this.deletePost} >Delete Post</button>
+            </StyledModal>
+            <div id='modal-overlay'
+            onClick={this.showDelete}
+            className={this.state.showDelete ? '' : 'hidden'}></div>
+          </StyledOverlay>
         </StyledDiv>
       </div>
     )

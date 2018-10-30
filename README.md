@@ -12,22 +12,22 @@ This app was developed with the tourist, jetsetter, or anyone that enjoys travel
 ### Technologies 
 
 * Ruby version 2.5.1
-* Rails version 2.5.1 : React.jsx, Active-Record, Postgresql 
-* MVC
-* Node.js
-* react-router-dom
-* styled-components
+* Rails version 5.2.1 : React.jsx, Active-Record, Postgresql 
+* React-router-dom
+* Axios
+* Styled-components
 * Heroku
 
 ## Planning
 
 **Trello** [Board](https://trello.com/b/u36Kgac1/vagabond-project-board)
 
-**Wire**-[Frames](https://www.lucidchart.com/documents/edit/40893dd6-33d7-4fb9-8f13-8095426d596c/0?shared=true&)
+**ERD & Component Tree** [Board](https://github.com/miknhoj/Vagabond_Project/blob/807196a973a08da2906b26b64a76356ebb27db6e/Screen%20Shot%202018-10-30%20at%209.01.58%20AM.png)
 
+**Wire** [Frames](https://github.com/miknhoj/Vagabond_Project/blob/807196a973a08da2906b26b64a76356ebb27db6e/vagabondWireframe.jpg)
 
 ### Thanks & Shout Outs
-
+Daniel - client/Instructor
 
 
  ## Future Developent

@@ -68,7 +68,7 @@ export default class LandingPage extends Component {
                 <Logo />
               </div>
               <div>
-                <i class="fas fa-arrow-circle-down"></i>
+                <i className="fas fa-arrow-circle-down"></i>
               </div>
             </StyledWelcome>
           </div>

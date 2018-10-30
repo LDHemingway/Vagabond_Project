@@ -159,7 +159,7 @@ export default class PostPage extends Component {
 
           </div>
 
-          <Link to={`/cities/${this.state.post.city_id}`} ><button><i class="fas fa-arrow-left"></i></button></Link>
+          <Link to={`/cities/${this.state.post.city_id}`} ><button><i className="fas fa-arrow-left"></i></button></Link>
 
           <Link to={`/cities/${this.state.post.city_id}/posts/${this.state.post.id}/edit`}><button><i className="far fa-edit"></i></button></Link>
 

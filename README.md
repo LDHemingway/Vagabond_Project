@@ -3,7 +3,7 @@
 
 ## Vagabond
 
-This app was developed with the tourist, jetsetter, or anyone that enjoys traveling in mind. We want the user to be able to share their travel experiences, and view the exeprices of others who visit these cities as well. The app is inteneded to be interactive allowing you to add a post about to a particular city, and even get rid the less desirable ones making it a fun customizable viewing experience.
+This app was developed with the tourist, jetsetter, or anyone that enjoys traveling in mind. We want the user to be able to share their travel experiences, and view the exeprices of others who visit these cities as well. The app is inteneded to be interactive allowing you to add a post about a particular city, and even get rid the less desirable ones making it a fun customizable experience.
 
 ### Go to App:
  *Heroku Deployed* [Vagabond](https://jeclbond.herokuapp.com/)

@@ -5,9 +5,8 @@
 
 This app was developed with the tourist, jetsetter, or anyone that enjoys traveling in mind. We want the user to be able to share their travel experiences, and view the exeprices of others who visit these cities as well. The app is inteneded to be interactive allowing you to add a post about to a particular city, and even get rid the less desirable ones making it a fun customizable viewing experience.
 
-### Go to App
-
-
+### Go to App:
+ *Heroku Deployed* [Vagabond](https://jeclbond.herokuapp.com/)
 
 
 ### Technologies 
@@ -18,6 +17,7 @@ This app was developed with the tourist, jetsetter, or anyone that enjoys travel
 * Node.js
 * react-router-dom
 * styled-components
+* Heroku
 
 ## Planning
 
@@ -26,21 +26,11 @@ This app was developed with the tourist, jetsetter, or anyone that enjoys travel
 **Wire**-[Frames](https://www.lucidchart.com/documents/edit/40893dd6-33d7-4fb9-8f13-8095426d596c/0?shared=true&)
 
 
+### Thanks & Shout Outs
+
+
 
  ## Future Developent
+Coming soon...
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
